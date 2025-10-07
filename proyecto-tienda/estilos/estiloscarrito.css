@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+  font-family: 'websymbols';
+  src: url("../assets/fonts/websymbols-regular-webfont.eot");
+  src: url("../assets/fonts/websymbols-regular-webfont.ttf");
+  src: url("../assets/fonts/websymbols-regular-webfont.woff");
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --color-primary: #a052a0;
+  --color-secundary:gray;
+}
+
+
+/* General */
+body {
+  font-family: 'Lora';
+  background-image: url("../assets/fondo-body.jpeg");
+  color: var(--color-secundary);
+}
+
+header {
+  background-image: url("../assets/login-background.avif");
+  background-size: cover;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  animation: left-right 2s ease;
+}
+
+header h1 {
+  color: var(--color-primary);
+  font-family: 'Dancing Script';
+  margin: 0;
+  font-size: 70px;
+}
+
+main {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 60px;
+  animation: right-left 3s ;
+}
+
+/* Carrito Container */
+#carrito-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+
+}
+
+.carrito-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  background-color: #fefefe;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.carrito-image {
+  width: 60px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.carrito-info {
+  flex: 1;
+}
+
+.carrito-info h4 {
+  font-family: 'Poppins';
+  color: var(--color-primary);
+}
+
+.carrito-info p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: var(--color-secundary);
+}
+
+.carrito-item button {
+  background-color: #d48bbd;
+  color: white;
+  border: none;
+  box-shadow: 0px 0px 4px inset white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carrito-item button:hover {
+  background-color: #a052a0; /* Más oscuro */
+  box-shadow: 0px 0px 6px inset white;
+}
+
+/* Total y botones */
+#carrito-total {
+  box-shadow: 0px 0px 5px var(--color-primary);
+  border-radius: 5px;
+  font-size: 1.5rem;
+  color: #a052a0;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 4px;
+}
+
+/* Botones generales */
+.boton {
+  font-family: 'Lora';
+  display: block;
+  width: 30%;
+  margin: 0px auto;
+  background-color: #d48bbd;
+  color: white;
+  box-shadow: 0px 0px 10px inset white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color  0.5s;
+  margin-bottom: 5px;
+}
+
+.boton:hover {
+  background-color: #a052a0;
+
+}
+
+
+.link{
+  display: inline-block;
+  color: #a052a0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  justify-self: start;
+}
+
+.link::after{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #a052a0;
+  margin-top: 10px;
+  clip-path: circle(0 at center);
+  transition: clip-path 0.6s;
+}
+
+.link:hover::after{
+  clip-path: circle(100% at center);
+}
+
+
+
+.footer{
+  width: 100%;
+  display: flex;
+  height: 200px;
+  margin-top: 50px;
+  background-image: url("../assets/fondo-footer.avif");
+  background-size: cover;
+  opacity: 0.8;
+  color: black;
+  animation: left-right 1.5s ease;
+}
+
+.footer__redes {
+  margin-left: 10px;
+  padding: 10px 10px 60px 10px;
+  margin-bottom: 40px;
+
+}
+
+.footer__redes div {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  overflow: hidden;
+  height: 2rem;
+}
+
+.footer__redes p {
+  cursor: pointer;
+  font-family: 'WebSymbols';
+  font-size: 1.5rem;
+}
+
+.footer__redes a {
+  font-weight: normal;
+  padding: 0 5px;
+  transform: translate(-180%);
+  transition: transform .4s linear;
+  text-decoration: none;
+  color: var(--color-secundary);
+  font-size: 1.3rem;
+  box-shadow: 0 0 5px gray;
+  border: 3px solid white;
+  background-color: lightpink;
+  transition: all .4s linear;
+}
+
+.footer__redes div:hover a {
+  transform: translate(0);
+  transition: all .4s linear;
+}
+
+.footer__contacto{
+  width: 40%;
+  padding-top: 10px;
+}
+
+.footer__title{
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+@keyframes left-right {
+  from {
+      transform: translateX(-200%);
+  }
+  to {
+      transform: translateX(0%);
+  }
+} 
+
+@keyframes right-left {
+  from {
+      transform: translateX(200%);
+  }
+  to {
+      transform: translateX(0%);
+  }
+}
+
+
+@media (max-width:1024px){
+  header {
+    padding: 18px 0;
+    
+  }
+  
+  header h1 {
+    font-size: 60px;
+  }
+  
+  main {
+    padding: 18px;
+    margin-top: 55px;
+  }
+  
+  /* Carrito Container */
+  #carrito-container {
+    gap: 13px;
+    margin-bottom: 18px;
+  
+  }
+  
+  .carrito-item {
+    gap: 13px;
+    padding: 13px;
+  }
+  
+  .carrito-image {
+    width: 50px;
+    height: 70px;
+    border-radius: 8px;
+  }
+  
+  .carrito-info {
+    flex: 1;
+  }
+  
+  .carrito-info p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: var(--color-secundary);
+  }
+  
+  .carrito-item button {
+    
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  /* Total y botones */
+  #carrito-total {
+    font-size: 1.3rem;
+    padding: 3px;
+  }
+  
+  /* Botones generales */
+  .boton {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .link{
+    font-size: 0.7rem;
+    }
+
+  
+  
+  
+  
+    .footer{
+      width: 100%;
+      display: flex;
+      height: 180px;
+      margin-top: 40px;
+    }
+    
+    .footer__redes {
+      margin-left: 8px;
+      padding: 9px 9px 55px 9px;
+      margin-bottom: 35px;
+    
+    }
+    
+    .footer__redes div {
+      margin-bottom: 18px;
+      display: flex;
+      gap: 9px;
+      height: 1.8rem;
+    }
+    
+    .footer__redes p {
+      font-size: 1.3rem;
+    }
+    
+    .footer__redes a {
+      padding: 0 4px;
+      font-size: 1.2rem;
+      border: 2px solid white;
+    }
+  
+    
+    .footer__contacto{
+      width: 40%;
+      padding-top: 9px;
+    }
+    
+    .footer__title{
+      padding-left: 9px;
+      padding-top: 9px;
+    }
+  }
+
+@media (max-width:576px){
+  header {
+    padding: 16px 0;
+    
+  }
+  
+  header h1 {
+    font-size: 45px;
+  }
+  
+  main {
+    padding: 16px;
+    margin-top: 50px;
+  }
+  
+  /* Carrito Container */
+  #carrito-container {
+    gap: 12px;
+    margin-bottom: 15px;
+  
+  }
+  
+  .carrito-item {
+    gap: 11px;
+    padding: 11px;
+  }
+  
+  .carrito-image {
+    width: 35px;
+    height: 55px;
+    border-radius: 8px;
+  }
+  
+  .carrito-info {
+    flex: 1;
+  }
+  
+  .carrito-info p {
+    margin: 5px 0;
+    font-size: 0.7rem;
+    color: var(--color-secundary);
+  }
+  
+  .carrito-item button {
+    
+    padding: 6px 14px;
+    font-size: 0.7rem;
+  }
+  
+  /* Total y botones */
+  #carrito-total {
+    font-size: 1.1rem;
+    padding: 2px;
+  }
+  
+  /* Botones generales */
+  .boton {
+    padding: 6px 14px;
+    font-size: 0.7rem;
+  }
+  
+  .link{
+    font-size: 0.6rem;
+    }
+
+    
+  .footer{
+    width: 100%;
+    display: flex;
+    height: 250px;
+    margin-top: 40px;
+  }
+  
+  .footer__redes {
+    margin-left: 8px;
+    padding: 9px 9px 55px 9px;
+    margin-bottom: 35px;
+  
+  }
+  
+  .footer__redes div {
+    margin-bottom: 18px;
+    display: flex;
+    gap: 9px;
+    height: 1.8rem;
+  }
+  
+  .footer__redes p {
+    font-size: 1.3rem;
+  }
+  
+  .footer__redes a {
+    padding: 0 4px;
+    font-size: 1.2rem;
+    border: 2px solid white;
+  }
+
+  
+  .footer__contacto{
+    width: 40%;
+    padding-top: 9px;
+  }
+
+
+  .footer__contacto p{
+    width: 40%;
+    padding-top: 9px;
+    font-size: 0.7em;
+
+  }
+  
+  .footer__title{
+    padding-left: 9px;
+    padding-top: 9px;
+    width: 20%;
+  }
+
+  .footer__title p{
+    font-size: 0.6em;
+  }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listado de Productos</title>
+    <!-- Enlazamos el archivo CSS externo -->
+    <link rel="stylesheet" href="../estilos/estilosproductos.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Andres's Shop Products</h1>
+    </header>
+
+    <main>
+      <section class="nav">
+        <nav>
+          <section class="nav_orden">
+            <div class="mostrar_categoria">
+              <label class="label_nav">Mostrar producto por categoria</label>
+              <select name="mostrar_categoria" id="mostrar_categoria">
+                <option value="todos">Todos</option>
+                <option value="electronics">Electronics</option>
+                <option value="jewelery">Jewelery</option>
+                <option value="men's clothing">Men's clothing</option>
+                <option value="women's clothing">Women's clothing</option>
+              </select>
+            </div>
+
+            <div class="ordenar_precio">
+              <label class="label_nav">Ordenar productos</label>
+              <select name="ordenar_precio" id="ordenar">
+                <option value="ascendente">De menos a más</option>
+                <option value="descendente">De más a menos</option>
+              </select>
+            </div>
+
+            <!-- Botón para aplicar filtros -->
+            <button id="aplicar-filtros">Aplicar filtros</button>
+
+            <p>Carrito-<span class="contador-carrito"></span></p>
+         
+          </section>
+
+          <div class="carrito">
+            <a href="carrito/carrito.html"
+              ><i class="fa-solid fa-cart-shopping"></i
+            ></a>
+          </div>
+
+        </nav>
+      </section>
+      <h1 class="title">Productos de nuestra tienda online</h1>
+      <div id="productos-container"></div>
+      <!-- Contenedor donde se mostrarán los productos -->
+      <div id="loading-message">Cargando más productos...</div>
+      <!-- Mensaje de carga -->
+    </main>
+
+    <footer class="footer">
+      <div class="footer__redes">
+        <h4 class="redes__title">Redes sociales</h4>
+        <div>
+          <p>t</p>
+          <a href="">AShopProd</a>
+        </div>
+        <div>
+          <p>f</p>
+          <a href="">AShopProd</a>
+        </div>
+      </div>
+
+      <div class="footer__contacto">
+        <a href="#">912 158 655</a>
+        <p>
+          &copy; Precio de una llamada local desde una linea fija. El precio de
+          las llamadas desde una linea movil puede variar dependiendo de su
+          compañia telefónica.​
+        </p>
+      </div>
+
+      <p class="footer__title">Autor</p>
+      <p class="creditos__autor footer__title">&copy; Andrés Ordóñez Pinilla - iesiliberis.com</p>  
+    </footer>
+
+    <!-- Enlazamos el archivo JavaScript externo -->
+    <script src="productos.js"></script>
+  </body>
+</html>

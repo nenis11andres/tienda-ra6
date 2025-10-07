@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+  font-family: 'websymbols';
+  src: url("../assets/fonts/websymbols-regular-webfont.eot");
+  src: url("../assets/fonts/websymbols-regular-webfont.ttf");
+  src: url("../assets/fonts/websymbols-regular-webfont.woff");
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --color-primary: #a052a0;
+  --color-secundary:gray;
+}
+
+
+/* General */
+body {
+  font-family: 'Lora';
+  background-image: url("../assets/fondo-body.jpeg");
+  color: var(--color-secundary);
+}
+  
+h1 {
+  background-image: url("../assets/login-background.avif");
+  background-size: cover;
+  padding: 10px;
+  font-family: 'Dancing Script';
+  font-size: 50px;
+    color: #a052a0; /* Tono más oscuro de rosa */
+    text-align: center;
+    animation: left-right 1.5s;
+  }
+  
+.link{
+  margin-left: 20px;
+  display: inline-block;
+  color: #a052a0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  justify-self: start;
+}
+
+.link::after{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #a052a0;
+  margin-top: 10px;
+  clip-path: circle(0 at center);
+  transition: clip-path 0.6s;
+}
+
+.link:hover::after{
+  clip-path: circle(100% at center);
+}
+
+
+
+#detalles-producto {
+  background-color: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 0px 6px inset gray;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  animation: right-left 2s;
+}
+
+#detalles-producto h2 {
+  color: #a052a0; /* Rosa oscuro */
+  margin: 0 0 10px;
+  text-align: center;
+  width: 100%;
+  font-family: 'Lora';
+}
+
+#detalles-producto img {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 8px;
+  margin: 0 auto 20px;
+  align-self: center;
+}
+
+#detalles-producto p {
+  font-size: 0.9rem;
+  color: var(--color-secundary);
+  margin: 5px 0;
+  width: 100%;
+  font-family: 'Poppins';
+}
+
+#comprar-btn {
+  display: block;
+  margin: 20px auto 0;
+  background-color: #a052a0; /* Rosa oscuro */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.footer{
+  width: 100%;
+  display: flex;
+  height: 200px;
+  margin-top: 50px;
+  background-image: url("../assets/fondo-footer.avif");
+  background-size: cover;
+  opacity: 0.8;
+  color: black;
+  animation: left-right 1.5s ease;
+}
+
+.footer__redes {
+  margin-left: 10px;
+  padding: 10px 10px 60px 10px;
+  margin-bottom: 40px;
+
+}
+
+.footer__redes div {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  overflow: hidden;
+  height: 2rem;
+}
+
+.footer__redes p {
+  cursor: pointer;
+  font-family: 'WebSymbols';
+  font-size: 1.5rem;
+}
+
+.footer__redes a {
+  font-weight: normal;
+  padding: 0 5px;
+  transform: translate(-180%);
+  transition: transform .4s linear;
+  text-decoration: none;
+  color: var(--color-secundary);
+  font-size: 1.3rem;
+  box-shadow: 0 0 5px gray;
+  border: 3px solid white;
+  background-color: lightpink;
+  transition: all .4s linear;
+}
+
+.footer__redes div:hover a {
+  transform: translate(0);
+  transition: all .4s linear;
+}
+
+.footer__contacto{
+  width: 40%;
+  padding-top: 10px;
+}
+
+.footer__title{
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+
+@keyframes left-right {
+  from {
+      transform: translateX(-200%);
+  }
+  to {
+      transform: translateX(0%);
+  }
+} 
+
+@keyframes right-left {
+  from {
+      transform: translateX(200%);
+  }
+  to {
+      transform: translateX(0%);
+  }
+}
+
+
+@media (max-width:1024px){
+
+  h1 {
+    padding: 8px;
+    font-size: 45px;
+    }
+    
+  .link{
+    margin-left: 18px;
+    font-size: 0.8rem;
+  }
+
+  #detalles-producto {
+    padding: 18px;
+    margin: 18px auto;
+  }
+  
+  #detalles-producto h2 {
+    color: #a052a0; /* Rosa oscuro */
+    margin: 0 0 8px;
+    text-align: center;
+    width: 100%;
+    font-family: 'Lora';
+  }
+
+  
+  #detalles-producto p {
+    font-size: 0.8rem;
+    color: var(--color-secundary);
+    margin: 4px 0;
+    width: 100%;
+    font-family: 'Poppins';
+  }
+  
+  #comprar-btn {
+    margin: 18px auto 0;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+
+  }
+  
+  .footer{
+    width: 100%;
+    display: flex;
+    height: 180px;
+    margin-top: 40px;
+  }
+  
+  .footer__redes {
+    margin-left: 8px;
+    padding: 9px 9px 55px 9px;
+    margin-bottom: 35px;
+  
+  }
+  
+  .footer__redes div {
+    margin-bottom: 18px;
+    display: flex;
+    gap: 9px;
+    height: 1.8rem;
+  }
+  
+  .footer__redes p {
+    font-size: 1.3rem;
+  }
+  
+  .footer__redes a {
+    padding: 0 4px;
+    font-size: 1.2rem;
+    border: 2px solid white;
+  }
+
+  
+  .footer__contacto{
+    width: 40%;
+    padding-top: 9px;
+  }
+  
+  .footer__title{
+    padding-left: 9px;
+    padding-top: 9px;
+  }
+}
+
+
+@media (max-width:576px){
+
+  h1 {
+    padding: 8px;
+    font-size: 40px;
+    }
+    
+  .link{
+    margin-left: 17px;
+    font-size: 0.7rem;
+  }
+
+  #detalles-producto {
+    padding: 18px;
+    margin: 18px auto;
+  }
+  
+  #detalles-producto h2 {
+    color: #a052a0; /* Rosa oscuro */
+    margin: 0 0 8px;
+    text-align: center;
+    width: 100%;
+    font-family: 'Lora';
+  }
+
+  
+  #detalles-producto p {
+    font-size: 0.7rem;
+    color: var(--color-secundary);
+    margin: 3px 0;
+    width: 100%;
+    font-family: 'Poppins';
+  }
+
+
+  #comprar-btn {
+    margin: 18px auto 0;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+
+  }
+  
+  .footer{
+    width: 100%;
+    display: flex;
+    height: 250px;
+    margin-top: 40px;
+  }
+  
+  .footer__redes {
+    margin-left: 8px;
+    padding: 9px 9px 55px 9px;
+    margin-bottom: 35px;
+  
+  }
+  
+  .footer__redes div {
+    margin-bottom: 18px;
+    display: flex;
+    gap: 9px;
+    height: 1.8rem;
+  }
+  
+  .footer__redes p {
+    font-size: 1.3rem;
+  }
+  
+  .footer__redes a {
+    padding: 0 4px;
+    font-size: 1.2rem;
+    border: 2px solid white;
+  }
+
+  footer__contacto p{
+    width: 40%;
+    padding-top: 9px;
+    font-size: 0.7em;
+
+  }
+  
+  .footer__title{
+    padding-left: 9px;
+    padding-top: 9px;
+    width: 20%;
+  }
+
+  .footer__title p{
+    font-size: 0.6em;
+  }
+}

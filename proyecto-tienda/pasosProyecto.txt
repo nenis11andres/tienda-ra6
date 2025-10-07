@@ -1,0 +1,19 @@
+1. Login contra Json Server (HECHO)
+2. Seguridad anti boot en el login o confirmación de pedido  (HECHO)
+3. Simulación de Token JWT o en su defecto cualquier otro token. (HECHO)
+4. Mostrar listados de productos. (HECHO)
+5. Los productos se listan de 8 en 8, cargando nuevos si los hay mediante la técnica 
+conocida como Scroll Infinito o paginación. Cuando este se realice debe darse 
+información al respecto al usuario mediante algún tipo de preload o mensaje. (HECHO)
+6. Mostrar listados por categoría. (HECHO)
+7. Ordenar los listados ascendentemente o descendentemente. (HECHO)
+8. Mostrar inicialmente un listado de productos, teniendo cada uno de ellos al 
+menos un nombre, imagen y precio. (HECHO)
+9. Gestionar un carrito de la compra, de tal modo que cada producto debe ser 
+posible agregarlo al carrito. (HECHO)
+10. Si se selecciona un artículo debe mostrarse el detalle completo para éste (todos 
+los datos que proporciona la API), dando la posibilidad de comprarlo. (HECHO)
+11. Debe ser posible acceder al carro de la compra completo para simular la 
+realización final del pedido. (HECHO)
+
+PUNTOS NECESARIOS PARA ALCANZAR EL 7
