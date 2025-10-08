@@ -3,6 +3,9 @@ let productosMostrados = 0; // Cuántos productos se han mostrado hasta ahora
 let productosFiltrados = []; // Productos después de aplicar filtros
 const cantidadPorPagina = 8; // Número de productos a cargar por página
 
+  /**
+   * Obtiene los productos desde la API y los guarda en localStorage.
+   */
   function obtenerProductos() {
         const url = 'https://fakestoreapi.com/products';
         
@@ -26,7 +29,9 @@ const cantidadPorPagina = 8; // Número de productos a cargar por página
           });
   }
 
-// Mostrar los productos filtrados y ordenados
+  /**
+   * Muestra los productos filtrados y ordenados en la página.
+   */
   function mostrarProductos() {
         const container = document.getElementById('productos-container');
         const loadingMessage = document.getElementById('loading-message');
@@ -104,7 +109,10 @@ const cantidadPorPagina = 8; // Número de productos a cargar por página
   });
 
 
-
+  /**
+   * Añade un producto al carrito.
+   * @param {number|string} productId - ID del producto a añadir.
+   */
   function agregarAlCarrito(productId) {
         const productoSeleccionado = productos.find(producto => producto.id == productId);
         if (!productoSeleccionado) return;

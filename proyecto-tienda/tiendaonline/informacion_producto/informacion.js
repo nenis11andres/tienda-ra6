@@ -1,5 +1,10 @@
-// Define una función llamada 'obtenerParametroURL' que recibe un parámetro 'nombre'.
-  function obtenerParametroURL(nombre) {
+
+/**
+ * Obtiene el valor de un parámetro de la URL.
+ * @param {string} nombre - El nombre del parámetro a obtener.
+ * @returns {string|null} El valor del parámetro o null si no existe.
+ */
+function obtenerParametroURL(nombre) {
         // Crea un objeto URLSearchParams a partir de la parte de parámetros de la URL actual (lo que está después del '?').
         const params = new URLSearchParams(window.location.search);
         // Retorna el valor del parámetro que coincide con el nombre proporcionado.
@@ -7,7 +12,10 @@
         return params.get(nombre);
   }
 
-  
+  /**
+   * Busca y muestra los detalles de un producto por su ID.
+   * @param {number|string} idProducto - El ID del producto a buscar.
+   */ 
   function obtenerDetallesProducto(idProducto) {
         // Obtener todos los productos del localStorage
         const productos = JSON.parse(localStorage.getItem('productos')) || [];
@@ -22,6 +30,10 @@
         }
   }
   
+    /**
+   * Muestra los detalles de un producto en el DOM.
+   * @param {Object} producto - El objeto producto a mostrar.
+   */
   function mostrarDetallesProducto(producto) {
         const contenedor = document.getElementById('detalles-producto');
         contenedor.innerHTML = `

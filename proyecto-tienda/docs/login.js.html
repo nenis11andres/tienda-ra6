@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: login.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: login.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+    const loginForm = document.getElementById('loginForm');
+    const messageElement = document.getElementById('message');
+    const loginBoton = document.getElementById('loginBoton');
+
+    let intentosFallidos = 0; // Contador de intentos fallidos
+    const maxIntentos = 3; // Número máximo de intentos permitidos
+    let tiempoBloqueo = 0; // Tiempo de bloqueo en segundos (tiempo en que el usuario no puede volver a intentar)
+
+    /**
+     * Maneja el envío del formulario de login.
+     * Valida usuario y contraseña, gestiona bloqueos e inicia sesión.
+     */
+    loginForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita que el formulario recargue la página
+
+      const usuario = document.getElementById('username').value;
+      const contrasena = document.getElementById('password').value;
+
+      
+      // Si ya se ha alcanzado el máximo de intentos fallidos, no permitir más intentos
+      if (intentosFallidos >= maxIntentos) {
+        const tiempoActual = Date.now();
+        if (tiempoActual &lt; tiempoBloqueo) {
+          // Mostrar el tiempo restante de bloqueo
+          const tiempoRestante = ((tiempoBloqueo - tiempoActual) / 1000).toFixed(0);
+          messageElement.textContent = `Demasiados intentos fallidos. Intenta de nuevo en ${tiempoRestante} segundos.`;
+          return;
+        } else {
+          // Restablecer el contador de intentos fallidos y el tiempo de bloqueo
+          intentosFallidos = 0;
+          tiempoBloqueo = 0;
+        }
+      }
+
+      // Realizar la solicitud para obtener los usuarios desde el archivo JSON
+      fetch('users.json')
+        .then(res => res.json())
+        .then(usuarios => {
+          // Buscar al usuario con las credenciales correctas
+          const usuarioEncontrado = usuarios.find(u => u.username === usuario &amp;&amp; u.password === contrasena);
+
+          if (usuarioEncontrado) {
+            // Generar token JWT y guardarlo en localStorage
+            const token = generarToken(usuario);
+            localStorage.setItem('token', token);
+
+            // Redirigir a la tienda
+            window.location.href = 'tiendaonline/tiendaonline.html';
+          } else {
+            // Si las credenciales no coinciden, aumentar los intentos fallidos
+            intentosFallidos++;
+            if (intentosFallidos >= maxIntentos) {
+              // Bloquear la cuenta por 1 minuto (60 segundos) después de 3 intentos fallidos
+              tiempoBloqueo = Date.now() + 60000; // Bloqueo de 1 minuto
+              messageElement.textContent = 'Demasiados intentos fallidos. Intenta de nuevo en 1 minuto.';
+            } else {
+              messageElement.textContent = 'Usuario o contraseña incorrectos.';
+            }
+          }
+        })
+        .catch(error => {
+          console.error('Error al procesar el login:', error);
+          messageElement.textContent = 'Ocurrió un error. Inténtalo más tarde.';
+          messageElement.style.color = 'red';
+        });
+    });
+
+    /**
+     * Genera un token JWT simulado para el usuario.
+     * @param {string} usuario - Nombre del usuario.
+     * @returns {string} Token generado.
+     */
+    function generarToken(usuario) {
+  // Genera un token único combinando información del usuario, la marca de tiempo actual y una cadena aleatoria
+  const token = usuario + '-' + 
+    Date.now() // Marca de tiempo en milisegundos desde el 1 de enero de 1970
+    + '-' + 
+    Math.random() // Genera un número aleatorio entre 0 y 1
+    .toString(36) // Convierte el número a una cadena en base 36 (usa dígitos y letras a-z)
+    .substr(2, 9); // Extrae una subcadena de 9 caracteres, omitiendo los dos primeros ("0.")
+
+  return token;
+}
+
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#agregarAlCarrito">agregarAlCarrito</a></li><li><a href="global.html#cargarCarrito">cargarCarrito</a></li><li><a href="global.html#eliminarDelCarrito">eliminarDelCarrito</a></li><li><a href="global.html#generarToken">generarToken</a></li><li><a href="global.html#mostrarDetallesProducto">mostrarDetallesProducto</a></li><li><a href="global.html#mostrarProductos">mostrarProductos</a></li><li><a href="global.html#obtenerDetallesProducto">obtenerDetallesProducto</a></li><li><a href="global.html#obtenerParametroURL">obtenerParametroURL</a></li><li><a href="global.html#obtenerProductos">obtenerProductos</a></li><li><a href="global.html#realizarPedido">realizarPedido</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Wed Oct 08 2025 18:49:11 GMT+0200 (hora de verano de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

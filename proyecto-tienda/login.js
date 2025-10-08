@@ -7,7 +7,10 @@
     const maxIntentos = 3; // Número máximo de intentos permitidos
     let tiempoBloqueo = 0; // Tiempo de bloqueo en segundos (tiempo en que el usuario no puede volver a intentar)
 
-    // Función que maneja el evento de envío del formulario
+    /**
+     * Maneja el envío del formulario de login.
+     * Valida usuario y contraseña, gestiona bloqueos e inicia sesión.
+     */
     loginForm.addEventListener('submit', function(event) {
       event.preventDefault(); // Evita que el formulario recargue la página
 
@@ -63,7 +66,11 @@
         });
     });
 
-    // Función para generar un token JWT simulado
+    /**
+     * Genera un token JWT simulado para el usuario.
+     * @param {string} usuario - Nombre del usuario.
+     * @returns {string} Token generado.
+     */
     function generarToken(usuario) {
   // Genera un token único combinando información del usuario, la marca de tiempo actual y una cadena aleatoria
   const token = usuario + '-' + 

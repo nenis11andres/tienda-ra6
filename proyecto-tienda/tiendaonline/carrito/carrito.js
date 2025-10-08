@@ -1,3 +1,7 @@
+    
+    /**
+     * Carga y muestra los productos del carrito desde localStorage.
+     */
     function cargarCarrito() {
         
         const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -29,6 +33,10 @@
           totalElement.textContent = `Total: $${total.toFixed(2)}`;
     }
   
+    /**
+     * Elimina un producto del carrito por su ID.
+     * @param {number|string} productId - ID del producto a eliminar.
+     */
     function eliminarDelCarrito(productId) {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         carrito = carrito.filter(producto => producto.id != productId);
@@ -43,7 +51,9 @@
         cargarCarrito();
     });
 
-
+    /**
+     * Realiza el pedido con los productos del carrito.
+     */
   function realizarPedido() {  
       const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     
