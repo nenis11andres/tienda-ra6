@@ -1,0 +1,10 @@
+# Ignorar toda la carpeta terraform por defecto
+terraform/*
+
+# Exceptuar estos archivos
+!terraform/main.tf
+!terraform/variables.tf
+!terraform/terraform.tfstate
+
+# Ignorar la carpeta interna de Terraform que contiene providers
+terraform/.terraform/
