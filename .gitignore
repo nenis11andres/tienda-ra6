@@ -1,10 +1,7 @@
-# Ignorar toda la carpeta terraform por defecto
-terraform/*
-
-# Exceptuar estos archivos
-!terraform/main.tf
-!terraform/variables.tf
-!terraform/terraform.tfstate
-
-# Ignorar la carpeta interna de Terraform que contiene providers
+# Ignorar la carpeta .terraform y archivos de estado de Terraform
 terraform/.terraform/
+terraform/terraform.tfstate.backup
+terraform/.terraform.lock.hcl
+
+# No ignores los archivos de configuración principales
+# (main.tf, variables.tf) sí deben estar en el repo
