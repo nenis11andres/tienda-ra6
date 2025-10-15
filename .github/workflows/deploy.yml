@@ -1,7 +1,7 @@
-name: Manual Deploy - Terraform + AWS CLI
+name: Manual Deploy - Terraform + S3 Sync
 
 on:
-  workflow_dispatch:  # Ejecutar manualmente desde la pestaña Actions
+  workflow_dispatch: # Ejecutar manualmente desde GitHub Actions
 
 jobs:
   deploy:
@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Configurar credenciales AWS
+      # 2️⃣ Configurar credenciales AWS (con session token opcional)
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -37,13 +37,10 @@ jobs:
         working-directory: ./terraform
         run: terraform apply -auto-approve
 
-      # 6️⃣ Instalar AWS CLI
-      - name: Install AWS CLI
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y awscli
-
-      # 7️⃣ Subir archivos del proyecto al bucket S3
-      - name: Upload project to S3
-        run: |
-          aws s3 sync ./proyecto-tienda s3://tienda-ra6 --delete
+      # 6️⃣ Subir archivos al bucket S3 usando la acción oficial
+      - name: Meter proyecto al bucket s3
+        uses: aws-actions/s3-sync@v3
+        with:
+          bucket: tienda-ra6
+          source: ./proyecto-tienda
+          delete: true
