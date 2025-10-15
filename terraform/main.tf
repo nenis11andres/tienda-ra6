@@ -49,12 +49,13 @@ resource "aws_s3_bucket_policy" "policy" {
   })
 }
 
-output "bucket_name " {
+output "bucket_name" {
   value = aws_s3_bucket.tienda.bucket
 }
 
 output "website_url" {
   value = aws_s3_bucket_website_configuration.tienda_website.website_endpoint
 }
+
 
 
